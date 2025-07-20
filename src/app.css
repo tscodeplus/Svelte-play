@@ -1,3 +1,36 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+
+/* Univer CSS 样式导入 */
+@import '@univerjs/design/lib/index.css';
+@import '@univerjs/ui/lib/index.css';
+@import '@univerjs/docs-ui/lib/index.css';
+@import '@univerjs/sheets-ui/lib/index.css';
+@import '@univerjs/sheets-formula-ui/lib/index.css';
+@import '@univerjs/sheets-numfmt-ui/lib/index.css';
+
+/* Univer 容器样式优化 */
+.univer-container {
+	/* 确保容器有正确的定位 */
+	position: relative;
+	/* 防止内容溢出 */
+	overflow: hidden;
+}
+
+/* Univer 工作台样式调整 */
+.univer-workbench {
+	/* 确保工作台填满容器 */
+	width: 100% !important;
+	height: 100% !important;
+}
+
+/* 修复可能的样式冲突 */
+.univer-container * {
+	box-sizing: border-box;
+}
+
+/* 确保 Univer 的字体正确显示 */
+.univer-container {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}

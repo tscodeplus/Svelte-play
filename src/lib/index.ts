@@ -1,1 +1,30 @@
-// place files you want to import through the `$lib` alias in this folder.
+// Univer Sheet 组件和工具函数导出
+
+// 主要组件
+export { default as UniverSheet } from './UniverSheet.svelte';
+
+// 类型定义
+export type {
+	UniverSheetConfig,
+	UniverWorkbookData,
+	UniverSheetData,
+	UniverCellData,
+	UniverRowData,
+	UniverColumnData,
+	UniverCellStyle,
+	UniverEventCallbacks,
+	UniverSheetProps
+} from './univer-types.js';
+
+// 工具函数
+export {
+	createDefaultWorkbookData,
+	createDefaultSheetData,
+	createCellData,
+	setCellValue,
+	getCellValue,
+	setBatchCellData,
+	arrayToUniverData,
+	univerDataToArray,
+	createSampleData
+} from './univer-utils.js';
