@@ -10,10 +10,10 @@
 	});
 
 	// 当前选择的示例
-	let currentExample = 'sample';
+	let currentExample = $state('sample');
 
 	// Univer 实例引用
-	let univerRef: any;
+	let univerRef = $state<any>();
 
 	function handleUniverReady(univer: Univer) {
 		console.log('Univer is ready:', univer);

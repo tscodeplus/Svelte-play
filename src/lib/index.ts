@@ -2,6 +2,7 @@
 
 // 主要组件
 export { default as UniverSheet } from './UniverSheet.svelte';
+export { default as USheet } from './USheet.svelte';
 
 // 类型定义
 export type {
@@ -14,7 +15,7 @@ export type {
 	UniverCellStyle,
 	UniverEventCallbacks,
 	UniverSheetProps
-} from './univer-types.js';
+} from './univer-types';
 
 // 工具函数
 export {
@@ -27,4 +28,4 @@ export {
 	arrayToUniverData,
 	univerDataToArray,
 	createSampleData
-} from './univer-utils.js';
+} from './univer-utils';

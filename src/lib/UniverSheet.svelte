@@ -30,9 +30,9 @@
 		className = ''
 	}: Props = $props();
 
-	let containerRef: HTMLDivElement;
-	let univerAPI: any = null;
-	let workbook: any = null;
+	let containerRef = $state<HTMLDivElement>();
+	let univerAPI = $state<any>(null);
+	let workbook = $state<any>(null);
 
 	onMount(() => {
 		if (!containerRef) return;
@@ -77,10 +77,6 @@
 				const subscription = univerAPI.onWorkbookChange?.((workbookData: any) => {
 					onChange(workbookData);
 				});
-
-				return () => {
-					subscription?.dispose?.();
-				};
 			} catch (error) {
 				console.warn('Change listener setup failed:', error);
 			}

@@ -1,5 +1,5 @@
 import { LocaleType } from '@univerjs/core';
-import type { UniverWorkbookData, UniverSheetData, UniverCellData } from './univer-types.js';
+import type { UniverWorkbookData, UniverSheetData, UniverCellData } from './univer-types';
 
 /**
  * 创建默认的工作簿数据
