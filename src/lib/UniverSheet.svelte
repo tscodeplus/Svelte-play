@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { onMount, onDestroy } from 'svelte';
 	import { LocaleType } from '@univerjs/core';
 	import { createUniver, merge } from '@univerjs/presets';
 	import { UniverSheetsCorePreset } from '@univerjs/preset-sheets-core';
@@ -30,12 +29,16 @@
 		className = ''
 	}: Props = $props();
 
+	import { onMount } from 'svelte';
+
 	let containerRef = $state<HTMLDivElement>();
 	let univerAPI = $state<any>(null);
 	let workbook = $state<any>(null);
 
 	onMount(() => {
 		if (!containerRef) return;
+
+		let subscription: any = null;
 
 		// Get locale data
 		const localeData = locale === LocaleType.EN_US
@@ -74,19 +77,23 @@
 			// Note: The exact API for listening to changes may vary
 			// This is a placeholder and may need adjustment based on actual API
 			try {
-				const subscription = univerAPI.onWorkbookChange?.((workbookData: any) => {
+				subscription = univerAPI.onWorkbookChange?.((workbookData: any) => {
 					onChange(workbookData);
 				});
 			} catch (error) {
 				console.warn('Change listener setup failed:', error);
 			}
 		}
-	});
 
-	onDestroy(() => {
-		if (univerAPI) {
-			univerAPI.dispose();
-		}
+		// Return cleanup function
+		return () => {
+			if (subscription) {
+				subscription.dispose?.();
+			}
+			if (univerAPI) {
+				univerAPI.dispose();
+			}
+		};
 	});
 
 	// Expose methods for external use

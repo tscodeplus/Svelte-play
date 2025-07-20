@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { UniverSheet, arrayToUniverData, createDefaultWorkbookData, setCellValue } from '$lib';
-	import type { Univer, LocaleType } from '@univerjs/core';
 
 	// 创建自定义数据
 	let customData = createDefaultWorkbookData({
@@ -21,10 +20,10 @@
 	const cellData = arrayToUniverData(tableData);
 	customData.sheets['sheet-01'].cellData = cellData;
 
-	let univerInstance: Univer | null = null;
+	let univerInstance: any = null;
 
-	function handleReady(univer: Univer) {
-		univerInstance = univer;
+	function handleReady(univerAPI: any) {
+		univerInstance = univerAPI;
 		console.log('Univer实例已准备就绪');
 	}
 

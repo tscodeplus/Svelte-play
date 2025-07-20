@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { UniverSheet, createSampleData, createDefaultWorkbookData } from '$lib';
-	import type { Univer } from '@univerjs/core';
 
 	// 创建示例数据
 	let sampleData = createSampleData();
@@ -15,8 +14,8 @@
 	// Univer 实例引用
 	let univerRef = $state<any>();
 
-	function handleUniverReady(univer: Univer) {
-		console.log('Univer is ready:', univer);
+	function handleUniverReady(univerAPI: any) {
+		console.log('Univer is ready:', univerAPI);
 	}
 
 	function handleDataChange(data: any) {
