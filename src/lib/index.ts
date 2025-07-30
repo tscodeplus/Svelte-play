@@ -2,7 +2,7 @@
 
 // 主要组件
 export { default as UniverSheet } from './UniverSheet.svelte';
-export { default as USheet } from './USheet.svelte';
+
 
 // 类型定义
 export type {
